@@ -55,6 +55,7 @@ html,body {
                         </a>
                 </h1>
             </div>
+            <div class="popover-title">${param.title}</div>
             <div class="row">${param.body}</div>
         </div>
         <footer>

@@ -52,13 +52,7 @@ public class CityController {
         return "/city/list";
     }
     
-/*    @RequestMapping(value = "/form", method = RequestMethod.GET)
-    public String create(Model model){
-    	List<Region> regionOption = regionService.findAllList();
-    	model.addAttribute("regionOption",regionOption);
-    	return "/city/form";
-    }*/
-    
+    //메소드 타입이 모델 오브젝트일 경우 해당 requestMapping이 뷰경로가 된다.
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public @ModelAttribute
     City create(Model model) {

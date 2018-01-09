@@ -1,6 +1,10 @@
 package com.example.mvc.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -44,6 +48,8 @@ public class RegionController {
             Model model) {
         int pageNum = page != null ? page : DEFAULT_PAGE_NUM;
         Page<Region> paging = regionService.findAll(pageNum, DEFAULT_PAGE_SIZE);
+        Long cityCtn = cityService.countByCityTotal();
+        model.addAttribute("cityCtn", cityCtn);
         model.addAttribute("page", paging);
         return "/region/list";
     }

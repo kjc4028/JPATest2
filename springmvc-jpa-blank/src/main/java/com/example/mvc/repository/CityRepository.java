@@ -9,6 +9,11 @@ import com.example.mvc.entity.City;
 
 public interface CityRepository extends JpaRepository<City, Integer> {
 	
+	
 	@Query("select c from City c where c.regionId.regionId = ?1")
 	List<City> findByCityList(Integer regionId);
+	
+	@Query("select count(*) from City")
+	Long countByCityTotal();
+	
 }

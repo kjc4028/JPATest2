@@ -2,6 +2,7 @@ package com.example.mvc.service;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.data.domain.Page;
 
@@ -22,4 +23,7 @@ public interface CityService {
 	void deleteByCityId(Integer id);
 	
 	List<City> findByCityList(Integer regionId);
+	
+	Long countByCityTotal();
+	
 }

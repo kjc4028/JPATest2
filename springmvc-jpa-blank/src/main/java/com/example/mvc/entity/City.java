@@ -21,16 +21,19 @@ public class City implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "city_id")
     private Integer cityId;
+	
     @Column(name = "city_name")
     private String cityName;
+    
     @JoinColumn(name = "region_id", referencedColumnName = "region_id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Region regionId;
-
+    
     public City() {
     }
 

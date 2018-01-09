@@ -10,12 +10,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.mvc.service.CityService;
 
 
 @Entity
 @Table(name="jc_region")
 public class Region {
+	
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,8 +32,19 @@ public class Region {
     private String regionName;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "regionId", fetch = FetchType.LAZY)
     private List<City> cityList;
+    
+    @Transient
+    private Integer cityCnt;
+    
+	public Integer getCityCnt() {
+		return cityList.size();
+	}
 
-    public Region() {
+	public void setCityCnt(Integer cityCnt) {
+		this.cityCnt = cityList.size();
+	}
+
+	public Region() {
     }
 
     public Region(Integer regionId) {

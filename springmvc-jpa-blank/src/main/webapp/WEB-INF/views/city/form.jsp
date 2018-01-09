@@ -30,6 +30,7 @@
                             cssErrorClass="error" />  --%>
                             
                           <form:select path="regionId.regionId"  cssClass="span3" cssErrorClass="error">
+                          		<form:option value="0">-</form:option>
                             <c:forEach items="${regionOption}" var="ro">
                             	<form:option value="${ro.regionId}">${ro.regionName}</form:option>
                             </c:forEach>

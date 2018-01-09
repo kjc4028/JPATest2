@@ -9,7 +9,7 @@
             <tr>
                 <th>REGION ID</th>
                 <th>REGION NAME</th>
-                <th>CITY LIST</th>
+                <th>CITY LIST   [ ${cityCtn} ]</th>
                 <th>&nbsp;</th>
             </tr>
             <c:forEach items="${page.content}" var="region">
@@ -17,6 +17,7 @@
                     <td>${f:h(region.regionId)}</td>
                     <td>${f:h(region.regionName)}</td>
                     <td>
+                    	[ ${f:h(region.cityCnt)} ]
                     	<c:forEach items="${region.cityList}" var="li">${li.cityName} </c:forEach>
                     <td><a
                         href='${pageContext.request.contextPath}/region/edit/${region.regionId}'

@@ -86,8 +86,7 @@ public class PersonController {
             @PathVariable("id") Integer id) {
         LOGGER.debug("delete id={}", id);
         personService.deleteById(id);
-
         return "redirect:/person/list";
     }
-
+    
 }

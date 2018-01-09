@@ -2,6 +2,7 @@ package com.example.mvc.service.impl;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,7 +27,6 @@ public class CityServiceImpl implements CityService {
         Page<City> citys = cityRepository.findAll(pageable);
         return citys;
     }
-
     @Override
     @Transactional(readOnly = true)
     public City findByCityId(Integer id) {
@@ -53,13 +53,21 @@ public class CityServiceImpl implements CityService {
     }
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<City> findAllList() {
 		return cityRepository.findAll();
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<City> findByCityList(Integer regionId) {
 		return cityRepository.findByCityList(regionId);
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public Long countByCityTotal() {
+		return cityRepository.countByCityTotal();
 	}
 
 

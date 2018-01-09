@@ -21,12 +21,12 @@ public class Person implements Serializable {
     @Column(name = "PERSON_ID")
     @GeneratedValue
     private Integer id;
-
+    
     @Column(name = "PERSON_NAME")
     @Size(min = 1, max = 30)
     @NotNull
     private String name;
-
+    
     @Column(name = "AGE")
     @Min(1)
     @Max(200)
