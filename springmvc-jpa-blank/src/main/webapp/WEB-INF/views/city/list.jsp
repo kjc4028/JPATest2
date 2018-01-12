@@ -12,6 +12,13 @@
 				<th>REGION ID</th>
 				<th>&nbsp;</th>
 			</tr>
+						${cname.cityName} ${cname.cityId}		
+			
+			<c:forEach items="${list}" var="list">
+			${list.cityName} ${list.cityId}
+			</c:forEach>
+
+			
 			<c:forEach items="${page.content}" var="city">
 				<tr>
 					<td>${f:h(city.cityId)}</td>

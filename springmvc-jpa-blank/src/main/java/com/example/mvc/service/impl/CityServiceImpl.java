@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,7 +25,7 @@ public class CityServiceImpl implements CityService {
     @Override
     @Transactional(readOnly = true)
     public Page<City> findAll(int page, int size) {
-        Pageable pageable = new PageRequest(page, size);
+        Pageable pageable = new PageRequest(page, size, new Sort(Direction.ASC, "cityName"));
         Page<City> citys = cityRepository.findAll(pageable);
         return citys;
     }
@@ -68,6 +70,10 @@ public class CityServiceImpl implements CityService {
 	@Transactional(readOnly = true)
 	public Long countByCityTotal() {
 		return cityRepository.countByCityTotal();
+	}
+	@Override
+	public City findByCityName(String cityName) {
+		return cityRepository.findByCityName(cityName);
 	}
 
 

@@ -16,4 +16,8 @@ public interface CityRepository extends JpaRepository<City, Integer> {
 	@Query("select count(*) from City")
 	Long countByCityTotal();
 	
+	/*@Query("select c from City c where c.cityName = ?1")*/
+	City findByCityName(String cityName);
+	
+	
 }

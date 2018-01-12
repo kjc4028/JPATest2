@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.repository.Query;
 
 import com.example.mvc.entity.City;
 
@@ -26,4 +27,5 @@ public interface CityService {
 	
 	Long countByCityTotal();
 	
+	City findByCityName(String cityName);
 }

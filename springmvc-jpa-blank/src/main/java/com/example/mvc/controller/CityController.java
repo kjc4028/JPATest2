@@ -48,6 +48,11 @@ public class CityController {
             Model model) {
         int pageNum = page != null ? page : DEFAULT_PAGE_NUM;
         Page<City> paging = cityService.findAll(pageNum, DEFAULT_PAGE_SIZE);
+        List<City> list = cityService.findByCityList(1);
+        City cname = cityService.findByCityName("°£¼®");
+
+        model.addAttribute("cname", cname);
+        model.addAttribute("list", list);
         model.addAttribute("page", paging);
         return "/city/list";
     }

@@ -14,8 +14,8 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="jc_city")
-public class City implements Serializable {
+@Table(name="jc_city2")
+public class City2 implements Serializable {
 
 
 	private static final long serialVersionUID = 1L;
@@ -28,18 +28,30 @@ public class City implements Serializable {
     @Column(name = "city_name")
     private String cityName;
     
-    @JoinColumn(name = "region_id"/*, referencedColumnName = "region_id"*/)
+    @JoinColumn(name = "region_REGION_ID", referencedColumnName = "region_id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Region regionId;
     
-    public City() {
+    private String abcDef;
+    
+    
+    
+    public String getAbcDef() {
+		return abcDef;
+	}
+
+	public void setAbcDef(String abcDef) {
+		this.abcDef = abcDef;
+	}
+
+	public City2() {
     }
 
-    public City(Integer cityId) {
+    public City2(Integer cityId) {
         this.cityId = cityId;
     }
 
-    public City(Integer cityId, String cityName) {
+    public City2(Integer cityId, String cityName) {
         this.cityId = cityId;
         this.cityName = cityName;
     }
